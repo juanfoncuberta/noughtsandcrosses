@@ -1,6 +1,6 @@
-import { tint } from "../../node_modules/polished";
+import { tint } from 'polished';
 
-const basicColors = {
+  const theme = {
     colors: {
         black: '#000',
         white: '#fff',
@@ -10,11 +10,11 @@ const basicColors = {
     }
 };
 
-const theme = {
-    colors: {
-      ...basicColors,
-      grayDark: tint(0.8, basicColors.black),
-    },
-  };
+/* const theme = {
+  colors: {
+    ...basicColors,
+    grayDark: tint(0.8, basicColors.black),
+  },
+}; */
 
-  export default theme;
+export default theme;
