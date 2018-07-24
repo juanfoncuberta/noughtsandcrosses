@@ -1,11 +1,10 @@
 import React from 'react';
 import { Game } from '../scenes';
-import  Header from './Header';
-import  Content from './Content';
 import { Provider as StyleProvider } from 'rebass';
 import { injectGlobal } from 'styled-components';
 import { normalize } from 'polished';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
+import { Main, Content, Header } from '../Layout';
 import theme from './Theme';
 
 
@@ -18,11 +17,13 @@ injectGlobal`
 
 const App = () => (
      <StyleProvider theme={theme}>
-        <Header />
         <BrowserRouter>
-            <Content>
-                <Route path="/" exact component={Game}/>-
-            </Content>
+            <Main>
+                <Header />
+                <Content>
+                    <Route path="/" exact component={Game}/>-
+                </Content>
+            </Main> 
         </BrowserRouter>
        <Game />
      </StyleProvider>
