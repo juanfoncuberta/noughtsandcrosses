@@ -4,12 +4,16 @@ import styled from 'styled-components';
 
 
 const StyledBox = styled(Box)`
-    border-color: 'red';
+    border: 2px solid red;
+    height: 200px;
+    width: 200px;
+    margin-left: 100px;
+    
 `;
 
 
 const Cell = ({player, children}) => (
-    <StyledBox bg="white" width='50' color='red'>
+    <StyledBox bg="white" color='red'>
 
     </StyledBox>
 );
