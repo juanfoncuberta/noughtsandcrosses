@@ -16,6 +16,7 @@
   "devDependencies": {
     "polished": "^1.9.3",
     "prettier": "^1.13.7",
+    "react-redux": "^5.0.7",
     "react-router-dom": "^4.3.1",
     "rebass": "^2.1.0",
     "styled-components": "^3.3.3",

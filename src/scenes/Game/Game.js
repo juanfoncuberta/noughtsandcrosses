@@ -6,9 +6,9 @@ const Game = () => <Box bg="white" color="primary">
                         Let's play a game
                         <div>
                             <Cell />
-                            <div><PlayerSelection player = 'P1'/>
+                            <div><PlayerSelection player = '1'/>
                             <Button />
-                            <PlayerSelection player = 'P2'/></div>
+                            <PlayerSelection player = '2'/></div>
                         </div>
                         <div>
                             <p>¿Historial?</p>

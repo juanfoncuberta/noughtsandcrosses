@@ -1,10 +1,15 @@
 import React from 'react';
-import { Label } from 'rebass';
+import { Text } from 'rebass';
+import styled from 'styled-components';
+
+const StyledPlayerSelection  = styled(Text)`
+    color: ${player => player === '1'? 'red':'blue'};
+`;
 
 
 
 const PlayerSelection = ({playeractive, player}) => (
-    <Label>{player}</Label>
+    <StyledPlayerSelection>P{player}</StyledPlayerSelection>
 );
 
 
