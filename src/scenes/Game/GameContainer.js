@@ -33,12 +33,19 @@ class GameContainer extends Component{
     }
     onRestartGame = e => {
         //this.props.gameSet(this.state);
-        console('Restarting game...');
-        return console('Restarting game...');
+        console.log('Restarting game...');
+        this.props.gameSet(this.state);
     }
     onClickCell = e => {
         console.log('cell clicked');
-        console(e);
+        console.log(e.target);
+        console.log(e);
+        this.setState({
+            ...this.state,
+            playerActive:2
+        })
+        console.log(this.state);
+
     }
     render(){
         return (
@@ -46,12 +53,11 @@ class GameContainer extends Component{
                 playerActive={this.state.playerActive} 
                 boardValue={this.state.boardValue} 
                 gameFinished={this.state.gameFinished} 
-                state={this.state}
-                onChangeGamedFinished={this.state.onChangeGamedFinished} 
-                onChangeBoardValue={this.state.onChangeBoardValue}
-                onChangePlayerActive={this.state.onChangePlayerActive}
-                onRestartGame={this.state.onRestartGame}
-                onClickCell={this.state.onClickCell}
+                onChangeGamedFinished={this.onChangeGamedFinished} 
+                onChangeBoardValue={this.onChangeBoardValue}
+                onChangePlayerActive={this.onChangePlayerActive}
+                onRestartGame={this.onRestartGame}
+                onClickCell={this.onClickCell}
             />
         );
     }
@@ -66,11 +72,11 @@ const mapStateToProps = state => ({
     state: state
 });
 
-/*const mapDispatchToProps = {
+const mapDispatchToProps = {
     gameSet
-}*/
+}
 
 
-export default connect(mapStateToProps)(GameContainer);
-//export default connect(mapStateToProps,mapDispatchToProps)(GameContainer);
+
+export default connect(mapStateToProps,mapDispatchToProps)(GameContainer);
 

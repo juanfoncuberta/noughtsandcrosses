@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from 'rebass';
+import { Box,Button } from 'rebass';
 import styled from 'styled-components';
 
 
@@ -13,7 +13,7 @@ const StyledBox = styled(Box)`
 `;
 
 
-const Cell = ({player, children}) => (
-    <StyledBox bg="white" color='red' />
+const Cell = ({player, children,key,onClick}) => ( 
+        <StyledBox id={key} onClick={onClick}  bg="#FF0000"  />
 );
 export default Cell;
