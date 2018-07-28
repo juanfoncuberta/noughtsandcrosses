@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Flex } from 'rebass';
 import { PlayerSelection, ButtonRestart, Board } from '../../components'
-import { connect } from 'react-redux';
+// import { connect } from 'react-redux';
 
 
 
@@ -18,7 +18,7 @@ const Game = ({
     state
     }) => <Box bg="white" color="primary">
             Let's play a game
-                {/* <span>{}</span> */}
+                {/* <span>{JSON.stringify(boardValue)}</span> */}
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>
@@ -29,12 +29,12 @@ const Game = ({
 
 
 
+export default Game;
+// const mapStateToProps = state =>({
+//     playerActive: state.game.playerActive,
+//     boardValue: state.game.boardValue,
+//     gameFinished: state.game.gameFinished,
+//     state:state
+// });
 
-const mapStateToProps = state =>({
-    playerActive: state.game.playerActive,
-    boardValue: state.game.boardValue,
-    gameFinished: state.game.gameFinished,
-    state:state
-});
-
-export default connect(mapStateToProps)(Game);
+// export default connect(mapStateToProps)(Game);
