@@ -1,5 +1,5 @@
-import { settingInitialState } from './settings';
+import { gameInitialState } from './settings';
 
 export default {
-    settings: settingInitialState, 
+    game: gameInitialState, 
 }

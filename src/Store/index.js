@@ -5,7 +5,7 @@ export {gameSet} from './actions';
 
 const store = createStore(
     rootReducer,
-    window.__REDUX_DEVTOOLS_EXTENSION_&& window._REDUC_DEVTOOLS_EXTENSION_(),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
 );
 
-export default store;
+export default store;   

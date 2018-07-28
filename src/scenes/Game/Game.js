@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Flex } from 'rebass';
 import { PlayerSelection, ButtonRestart, Board } from '../../components'
+import { connect } from 'react-redux';
 
 
 
@@ -13,9 +14,11 @@ const Game = ({
     onChangeBoardValue,
     onChangeGamedFinished,
     onRestartGame,
-    onClickCell
+    onClickCell,
+    state
     }) => <Box bg="white" color="primary">
             Let's play a game
+                {/* <span>{}</span> */}
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>
@@ -27,4 +30,11 @@ const Game = ({
 
 
 
-export default Game;
+const mapStateToProps = state =>({
+    playerActive: state.game.playerActive,
+    boardValue: state.game.boardValue,
+    gameFinished: state.game.gameFinished,
+    state:state
+});
+
+export default connect(mapStateToProps)(Game);
