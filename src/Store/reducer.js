@@ -1,4 +1,4 @@
-import { default as combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 import { default as gameReducer } from './Game'; 
 
 export default combineReducers({

@@ -8,8 +8,8 @@ const StyledBox = styled(Box)`
     border: 2px solid black;
     height: 100px;
     width: 100px;
-    margin-left: 100px;
-    
+   /*margin-left: 100px;
+    */
 `;
 
 
