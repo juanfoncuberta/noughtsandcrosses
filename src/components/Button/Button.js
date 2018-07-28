@@ -12,8 +12,9 @@ const StyledButton   = styled(Button)`
     }
 `;
 
-const ButtonRestart = ({children}) => (
-    <StyledButton children='Restart'/>
+
+const ButtonRestart = ({children, onClick}) => (
+    <StyledButton onClick={onClick} children={children}/>
 );
 
 
