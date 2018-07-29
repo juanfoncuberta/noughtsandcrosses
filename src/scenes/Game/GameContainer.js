@@ -19,14 +19,7 @@ class GameContainer extends React.Component{
             initialGameFinished,
         } = this.props;
     
-        /*
-            Se que reinciar asi el tablero es una "cochinada" pero después
-            de horas intentando reinicializarlo la manera mas elegante, no lo he conseguido.
-            He visto donde esta el problema, cuando  modifico uno los de los boardValues,
-            se modifica el otro también, asi que no puedo devolver el tablero a su estado
-            inicial, si no es con esto.
-
-        */
+       
         this.props.gameSetSet({
             playerActive:initialPlayerActive,
             boardValue:initialBoardValue,
@@ -48,6 +41,14 @@ class GameContainer extends React.Component{
 
                 
         ));
+         /*
+            Se que reinciar asi el tablero es una "cochinada" pero después
+            de horas intentando reinicializarlo la manera mas elegante, no lo he conseguido.
+            He visto donde esta el problema, cuando  modifico uno los de los boardValues,
+            se modifica el otro también, asi que no puedo devolver el tablero a su estado
+            inicial, si no es con esto.
+
+        */
 
         this.props.gameSetSet({
             playerActive:initialPlayerActive,
