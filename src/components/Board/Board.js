@@ -13,7 +13,7 @@ const MakeRow = function(rowValues,idRow,onClick){
     const row = [];
    
         rowValues.map((cellProps)=>
-             row.push(<Cell cellId={cellProps.id} key={cellProps.id} cellValue={cellProps.val} onClick={onClick.bind(this,cellProps.id)} />
+             row.push(<Cell cellId={cellProps.id} key={cellProps.id}  cellValue={cellProps.val} onClick={onClick.bind(this,cellProps.id)} />
             )
         );
     return <Flex key={idRow}>{row}</Flex>

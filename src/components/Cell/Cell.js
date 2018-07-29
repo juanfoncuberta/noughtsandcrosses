@@ -20,6 +20,6 @@ var calculateCellColor = (value) =>(
 
 
 const Cell = ({cellId,onClick,cellValue}) => ( 
-        <StyledBox  key={cellId} onClick={onClick} defaultValue={cellValue}  bg={calculateCellColor(cellValue)}  />
+        <StyledBox  key={cellId} onClick={ onClick} defaultValue={cellValue}  bg={calculateCellColor(cellValue)}  />
 );
 export default Cell;

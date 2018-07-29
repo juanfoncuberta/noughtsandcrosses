@@ -9,17 +9,16 @@ const Game = ({
     boardValue,
     gameFinished,
     onChangePlayerActive,
-    onChangeBoardValue,
-    onChangeGamedFinished,
     onRestartGame,
     onClickCell,
-    state
     }) => <Box bg="white" color="primary">
             Let's play a game
+
+                {gameFinished && <p>WE HAVE A WINNER</p>}
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>
-                    <ButtonRestart onClick={onRestartGame} children='Restart' />
+                    <ButtonRestart width={[1,1]}onClick={onRestartGame} children='Restart' />
                     <PlayerSelection playerActive={playerActive} player = '2' onChangePlayerActive={onChangePlayerActive}/>
                 </Flex>
         </Box>;

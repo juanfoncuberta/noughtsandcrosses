@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Game from './Game';
 import { 
     gameSet,
-    gameSetSet,
+    gameSetSet as gameSetSetACT,
     gameSetPlayerActive as gameSetPlayerActiveACT,
     gameSetBoardValue as gameSetBoardValueACT,
     gameSetGameFinished as gameSetGameFinishedACT 
@@ -18,43 +18,51 @@ class GameContainer extends React.Component{
             initialBoardValue,
             initialGameFinished,
         } = this.props;
+    
+        /*
+            Se que reinciar asi el tablero es una "cochinada" pero después
+            de horas intentando reinicializarlo la manera mas elegante, no lo he conseguido.
+            He visto donde esta el problema, cuando  modifico uno los de los boardValues,
+            se modifica el otro también, asi que no puedo devolver el tablero a su estado
+            inicial, si no es con esto.
+
+        */
         this.props.gameSetSet({
             playerActive:initialPlayerActive,
             boardValue:initialBoardValue,
             gameFinished:initialGameFinished
         });
     }
-  
-    onChangePlayerActive = e => {
-        this.setState({
-            playerActive: e.target.value
-        });
-    }
-    onChangeBoardValue = e => {
-        this.setState({
-            boardValue: e.target.value
-        });
-    }
-    onChangeGamedFinished = e => {
-        this.setState({
-            gameFinished: e.target.value
-        });
-    }
+
     onRestartGame = e => {
-        const { initialPlayerActive, initialBoardValue, initialGameFinished} = this.props;
-        gameSet({
+        const {
             initialPlayerActive,
             initialBoardValue,
-            initialGameFinished
-        })
+            initialGameFinished,
+    
+        } = this.props;
+
+        initialBoardValue.map(
+            row=>row.map(
+                cell=> cell.val=0 
+
+                
+        ));
+
+        this.props.gameSetSet({
+            playerActive:initialPlayerActive,
+            boardValue:initialBoardValue,
+            gameFinished:initialGameFinished
+        });
 
     }
     onClickCell = (i,e) => {
         
+        
         var cellValueChanged = false;
         var gameFinished = false;
-        var cellVal = 0;
         var playerActive = this.props.playerActive;
+  
         this.props.boardValue.map(
             row=>row.map(function(cell){
                 var originalCellValue = cell.val;
@@ -62,15 +70,15 @@ class GameContainer extends React.Component{
                 if(originalCellValue != cell.val){
                      cellValueChanged = true;
                 }
-                return cell;
             }
         ));
+
+        var boardValue = this.props.boardValue;
+       
         if(cellValueChanged){
             var newPlayerActive = (this.props.playerActive==1 ? 2:1);
-            this.props.gameSetBoardValue(this.props.boardValue);
-            this.props.gameSetPlayerActive(newPlayerActive);
-            var boardValue = this.props.boardValue;
-            console.log(JSON.stringify(this.props.winnerCombination));
+            
+            var gameFinished = false;
             this.props.winnerCombination.map(function(combination){
                     var firstPositionValue =    boardValue[combination[0].row][combination[0].col].val;
                     var secondPositionValue=    boardValue[combination[1].row][combination[1].col].val;
@@ -78,19 +86,20 @@ class GameContainer extends React.Component{
              
                    if(firstPositionValue != 0 &&
                        firstPositionValue === secondPositionValue &&
-                       firstPositionValue === thirdPositionValue){
-                       
-                       console.log('WINNER');
-                   } 
+                       firstPositionValue === thirdPositionValue)
+                            gameFinished = true;
             })
-            // this.props.boardValue.map(
-            //     row => row.map(
-            //         function(cell){
-            //             if(cell.val != 0 && cellVal == 0)
-            //                 cellVal = cell.val;
-            //             console.log(cellVal);
-            //         } 
-            //     ));
+       
+            
+            this.props.gameSetSet({
+                boardValue:     boardValue,
+                playerActive:   newPlayerActive,
+                gameFinished:   gameFinished
+            });
+        
+         
+            // this.props.gameSetGameFinished(gameFinished);
+         
         }
 
    
@@ -101,10 +110,7 @@ class GameContainer extends React.Component{
             <Game
                 playerActive={playerActive} 
                 boardValue={boardValue} 
-                gameFinished={gameFinished}  
-                onChangeGamedFinished={this.onChangeGamedFinished} 
-                onChangeBoardValue={this.onChangeBoardValue}
-                onChangePlayerActive={this.onChangePlayerActive}
+                gameFinished={gameFinished}
                 onRestartGame={this.onRestartGame}
                 onClickCell={this.onClickCell}
             />
@@ -126,7 +132,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = {
     gameSet,
-    gameSetSet,
+    gameSetSet:gameSetSetACT,
     gameSetPlayerActive:gameSetPlayerActiveACT,
     gameSetBoardValue:gameSetBoardValueACT,
     gameSetGameFinished:gameSetGameFinishedACT
