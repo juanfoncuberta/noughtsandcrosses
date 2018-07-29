@@ -18,7 +18,7 @@ const Game = ({
     state
     }) => <Box bg="white" color="primary">
             Let's play a game
-                {/* <span>{JSON.stringify(boardValue)}</span> */}
+                <span>{JSON.stringify(boardValue)}</span>
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>

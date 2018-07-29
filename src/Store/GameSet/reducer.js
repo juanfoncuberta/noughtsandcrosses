@@ -3,7 +3,7 @@ import {
     GAME_SET_SET_PLAYER_ACTIVE,
     GAME_SET_SET_BOARD_VALUE,
     GAME_SET_SET_GAME_FINISHED,
-    GAME_SET_SET
+    GAME_SET_SET_ALL
 } from './actions';
 
 
@@ -16,7 +16,7 @@ import {
             return {...state,boardValue:payload};
         case GAME_SET_SET_GAME_FINISHED:
             return {...state,gameFinished:payload};
-        case GAME_SET_SET:
+        case GAME_SET_SET_ALL:
             return {...state,...payload};
         default:
             return state;

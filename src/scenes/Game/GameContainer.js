@@ -24,6 +24,33 @@ class GameContainer extends React.Component{
     //         gameFinished
     //     };
     // }
+    componentDidMount(){
+        
+        const {
+            initialPlayerActive,
+            initialBoardValue,
+            initialGameFinished,
+        } = this.props;
+        this.props.gameSetSet({
+            playerActive:initialPlayerActive,
+            boardValue:initialBoardValue,
+            gameFinished:initialGameFinished
+        });
+    }
+
+    // shouldComponentUpdate(){
+    //     // const {
+    //     //     gameSet, 
+    //     //     playerActive,
+    //     //     boardValue,
+    //     //     gameFinished
+    //     // } = this.props;
+    //     // this.props.gameSetSet({
+    //     //     playerActive:playerActive,
+    //     //     boardValue:boardValue,
+    //     //     gameFinished:gameFinished
+    //     // });
+    // }
     onChangePlayerActive = e => {
         this.setState({
             playerActive: e.target.value
@@ -40,7 +67,6 @@ class GameContainer extends React.Component{
         });
     }
     onRestartGame = e => {
-        console.log('Restarting game...');
         const { initialPlayerActive, initialBoardValue, initialGameFinished} = this.props;
         gameSet({
             initialPlayerActive,
@@ -67,6 +93,7 @@ class GameContainer extends React.Component{
             this.props.gameSetBoardValue(this.props.boardValue);
             this.props.gameSetPlayerActive(newPlayerActive);
         }
+        console.log('click');
         console.log(JSON.stringify(this.props.boardValue));
     }
     render(){
