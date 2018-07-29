@@ -11,9 +11,13 @@ const Board = ({boardValue,onClick}) => ( boardValue.map((row,idRow) =>
 const MakeRow = function(rowValues,idRow,onClick){
     
     const row = [];
-    rowValues.map((cellProps)=>
-            row.push(<Cell key={cellProps.id} onClick={onClick} />)
-    );
+   
+        rowValues.map((cellProps)=>
+             row.push(<Cell cellId={cellProps.id} key={cellProps.id} cellValue={cellProps.val} onClick={onClick.bind(this,cellProps.id)} />
+            //    {cellProps.val}
+            //  <Cell />
+            )
+        );
     return <Flex key={idRow}>{row}</Flex>
 }
     

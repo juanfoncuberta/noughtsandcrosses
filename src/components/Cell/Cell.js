@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box,Button } from 'rebass';
 import styled from 'styled-components';
+import theme from '../../App/Theme'
 
 
 const StyledBox = styled(Box)`
@@ -8,12 +9,17 @@ const StyledBox = styled(Box)`
     border: 2px solid black;
     height: 100px;
     width: 100px;
-   /*margin-left: 100px;
-    */
 `;
 
+var calculateCellColor = (value) =>(
+  
+    (value == 0 ? 'white':(value === 1 ? 'blue':'red'))
+);
+   
 
-const Cell = ({player, children,key,onClick}) => ( 
-        <StyledBox id={key} onClick={onClick}  bg="#FF0000"  />
+
+
+const Cell = ({cellId,onClick,cellValue}) => ( 
+        <StyledBox  key={cellId} onClick={onClick}  bg={calculateCellColor(cellValue)}  />
 );
 export default Cell;

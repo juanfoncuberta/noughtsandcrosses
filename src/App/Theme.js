@@ -6,7 +6,7 @@ import { tint } from 'polished';
         white: '#fff',
         primary: '#D67E45',
         blue: '#1E90FF',
-        red: '##FF0000'
+        red: '#ff000f'
     }
 };
 

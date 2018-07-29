@@ -1,6 +1,8 @@
 import { combineReducers } from 'redux';
-import { default as gameReducer } from './Game'; 
+import {  gameReducer } from './Game'; 
+import {  gameSetReducer } from './GameSet'; 
 
 export default combineReducers({
-    game: gameReducer
+    game: gameReducer,
+    gameSet: gameSetReducer
 });

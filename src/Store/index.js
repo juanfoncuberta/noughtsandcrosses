@@ -1,6 +1,12 @@
 import {createStore } from 'redux';
 import rootReducer from './reducer';
-export {gameSet} from './actions';
+export {
+    gameSet,
+    gameSetPlayerActive,
+    gameSetBoardValue,
+    gameSetGameFinished,
+    gameSetSet
+} from './actions';
 
 
 const store = createStore(
