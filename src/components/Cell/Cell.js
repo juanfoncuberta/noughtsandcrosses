@@ -11,15 +11,8 @@ const StyledBox = styled(Box)`
     width: 100px;
 `;
 
-var calculateCellColor = (value) =>(
-  
-    (value == 0 ? 'white':(value === 1 ? 'blue':'red'))
-);
-   
-
-
 
 const Cell = ({cellId,onClick,cellValue}) => ( 
-        <StyledBox  key={cellId} onClick={ onClick} defaultValue={cellValue}  bg={calculateCellColor(cellValue)}  />
+        <StyledBox  key={cellId} onClick={ onClick} defaultValue={cellValue}  bg={(cellValue == 0 ? 'white':(cellValue === 1 ? 'blue':'red'))}  />
 );
 export default Cell;

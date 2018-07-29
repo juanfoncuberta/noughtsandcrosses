@@ -63,6 +63,10 @@ class GameContainer extends React.Component{
         var gameFinished = false;
         var playerActive = this.props.playerActive;
   
+        /*
+            AQUI es donde no entiendo porque me modifica el valor tambien de initialBoardValue.
+            Antes del map ambos tienen el estado anterior, y después del map, ambos han modificado su estado.
+        */
         this.props.boardValue.map(
             row=>row.map(function(cell){
                 var originalCellValue = cell.val;

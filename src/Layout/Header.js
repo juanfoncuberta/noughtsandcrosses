@@ -3,7 +3,6 @@ import { Box, Flex } from 'rebass';
 import { VideogameAsset } from 'styled-icons/material';
 import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
-import theme from '../App/Theme';
 
 const StyledLink = styled(NavLink)`
   color: ${({ theme }) => theme.colors.white};
