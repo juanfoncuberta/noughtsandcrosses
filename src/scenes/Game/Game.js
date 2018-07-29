@@ -1,8 +1,6 @@
 import React from 'react';
 import { Box, Flex } from 'rebass';
 import { PlayerSelection, ButtonRestart, Board } from '../../components'
-// import { connect } from 'react-redux';
-
 
 
 

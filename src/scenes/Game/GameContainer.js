@@ -24,6 +24,7 @@ class GameContainer extends React.Component{
             gameFinished:initialGameFinished
         });
     }
+  
     onChangePlayerActive = e => {
         this.setState({
             playerActive: e.target.value
@@ -51,9 +52,11 @@ class GameContainer extends React.Component{
     onClickCell = (i,e) => {
         
         var cellValueChanged = false;
+        var gameFinished = false;
+        var cellVal = 0;
         var playerActive = this.props.playerActive;
         this.props.boardValue.map(
-            (row)=>row.map(function(cell){
+            row=>row.map(function(cell){
                 var originalCellValue = cell.val;
                 cell.val = (cell.id === i && cell.val === 0? playerActive:cell.val);
                 if(originalCellValue != cell.val){
@@ -66,6 +69,28 @@ class GameContainer extends React.Component{
             var newPlayerActive = (this.props.playerActive==1 ? 2:1);
             this.props.gameSetBoardValue(this.props.boardValue);
             this.props.gameSetPlayerActive(newPlayerActive);
+            var boardValue = this.props.boardValue;
+            console.log(JSON.stringify(this.props.winnerCombination));
+            this.props.winnerCombination.map(function(combination){
+                    var firstPositionValue =    boardValue[combination[0].row][combination[0].col].val;
+                    var secondPositionValue=    boardValue[combination[1].row][combination[1].col].val;
+                    var thirdPositionValue =    boardValue[combination[2].row][combination[2].col].val;
+             
+                   if(firstPositionValue != 0 &&
+                       firstPositionValue === secondPositionValue &&
+                       firstPositionValue === thirdPositionValue){
+                       
+                       console.log('WINNER');
+                   } 
+            })
+            // this.props.boardValue.map(
+            //     row => row.map(
+            //         function(cell){
+            //             if(cell.val != 0 && cellVal == 0)
+            //                 cellVal = cell.val;
+            //             console.log(cellVal);
+            //         } 
+            //     ));
         }
 
    
@@ -96,7 +121,7 @@ const mapStateToProps = state => ({
     playerActive: state.gameSet.playerActive,
     boardValue: state.gameSet.boardValue,
     gameFinished: state.gameSet.gameFinished,
-    state:state
+    winnerCombination: state.gameSet.winnerCombination,
 });
 
 const mapDispatchToProps = {

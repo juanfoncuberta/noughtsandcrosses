@@ -28,7 +28,7 @@ const App = () => (
                     </Content>
                 </Main> 
             </BrowserRouter>
-        <Game />
+        {/* <Game /> */}
         </StyleProvider>
      </StoreProvider>
     );
