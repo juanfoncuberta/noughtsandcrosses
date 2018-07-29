@@ -49,7 +49,11 @@ class GameContainer extends React.Component{
             inicial, si no es con esto.
 
         */
-
+        console.log({
+            playerActive:initialPlayerActive,
+            boardValue:initialBoardValue,
+            gameFinished:initialGameFinished
+        });
         this.props.gameSetSet({
             playerActive:initialPlayerActive,
             boardValue:initialBoardValue,
