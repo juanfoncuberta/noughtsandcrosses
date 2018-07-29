@@ -1,7 +1,6 @@
 import React from 'react';
-import { Box, Flex } from 'rebass';
+import { Box, Flex, Message } from 'rebass';
 import { PlayerSelection, ButtonRestart, Board } from '../../components'
-
 
 
 const Game = ({
@@ -12,9 +11,7 @@ const Game = ({
     onRestartGame,
     onClickCell,
     }) => <Box bg="white" color="primary">
-            Let's play a game
-
-                {gameFinished && <p>WE HAVE A WINNER</p>}
+                {gameFinished && <Message>WE HAVE A WINNER</Message>}
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>

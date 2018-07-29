@@ -20,6 +20,7 @@ const Header = () => (
     <Box bg="primary" color="white" p={3}>
       <Flex justifyContent="space-between" alignItems="center">
         <VideogameAsset size="32" />
+        <span>Let's play a game</span>
         <Box>
             <StyledLink to='/'>Game</StyledLink>
         </Box>

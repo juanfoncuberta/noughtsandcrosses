@@ -1,16 +1,19 @@
 import React from 'react';
 import { Text } from 'rebass';
 import styled from 'styled-components';
+import { VideogameAsset } from 'styled-icons/material';
 
 const StyledPlayerSelection  = styled(Text)`
-    color: ${player => player === '1'? 'red':'blue'};
     margin-top: 10px;
+    font-weight:bold;
 `;
 
 
 
 const PlayerSelection = ({playeractive, player}) => (
-    <StyledPlayerSelection>P{player}</StyledPlayerSelection>
+  
+ 
+    <StyledPlayerSelection color={(player==1?'blue':'red')}>P{player}</StyledPlayerSelection>
 );
 
 
