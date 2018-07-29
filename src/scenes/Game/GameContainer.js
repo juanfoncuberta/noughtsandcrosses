@@ -76,13 +76,14 @@ class GameContainer extends React.Component{
 
     }
     onClickCell = (i,e) => {
+        
         var cellValueChanged = false;
         var playerActive = this.props.playerActive;
         this.props.boardValue.map(
             (row)=>row.map(function(cell){
-                var originalCellValue = cell.value;
-                cell.value = (cell.id === i && cell.value === 0? playerActive:cell.value);
-                if(originalCellValue != cell.value){
+                var originalCellValue = cell.val;
+                cell.val = (cell.id === i && cell.val === 0? playerActive:cell.val);
+                if(originalCellValue != cell.val){
                      cellValueChanged = true;
                 }
                 return cell;
@@ -93,16 +94,18 @@ class GameContainer extends React.Component{
             this.props.gameSetBoardValue(this.props.boardValue);
             this.props.gameSetPlayerActive(newPlayerActive);
         }
-        console.log('click');
-        console.log(JSON.stringify(this.props.boardValue));
+
+   
     }
     render(){
-            const { initialPlayerActive, initialBoardValue, initialGameFinished} = this.props;
+            const { playerActive, boardValue, gameFinished} = this.props;
+            console.log('render');
+            console.log(boardValue);
         return (
             <Game
-                playerActive={initialPlayerActive} 
-                boardValue={initialBoardValue} 
-                gameFinished={initialGameFinished}  
+                playerActive={playerActive} 
+                boardValue={boardValue} 
+                gameFinished={gameFinished}  
                 onChangeGamedFinished={this.onChangeGamedFinished} 
                 onChangeBoardValue={this.onChangeBoardValue}
                 onChangePlayerActive={this.onChangePlayerActive}
