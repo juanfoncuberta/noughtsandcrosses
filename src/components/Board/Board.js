@@ -14,8 +14,6 @@ const MakeRow = function(rowValues,idRow,onClick){
    
         rowValues.map((cellProps)=>
              row.push(<Cell cellId={cellProps.id} key={cellProps.id} cellValue={cellProps.val} onClick={onClick.bind(this,cellProps.id)} />
-            //    {cellProps.val}
-            //  <Cell />
             )
         );
     return <Flex key={idRow}>{row}</Flex>

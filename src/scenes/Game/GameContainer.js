@@ -1,4 +1,4 @@
-import  React,{ Component } from 'react';
+import  React from 'react';
 import { connect } from 'react-redux';
 import Game from './Game';
 import { 
@@ -10,20 +10,7 @@ import {
 } from '../../Store/';
 
 class GameContainer extends React.Component{
-    // state = {
-    //     // hola:"adios",
-    //     // props:this.props,
-    //     initialPlayerActive: this.props.state.game.playerActive,
-    //     boardValue: this.props.state.game.boardValue,
-    //     gameFinished: this.props.state.game.gameFinished
-    // }
-    // static getDerivedStateFromProps({playerActive,boardValue,gameFinished}){
-    //     return {
-    //         playerActive,
-    //         boardValue,
-    //         gameFinished
-    //     };
-    // }
+
     componentDidMount(){
         
         const {
@@ -37,20 +24,6 @@ class GameContainer extends React.Component{
             gameFinished:initialGameFinished
         });
     }
-
-    // shouldComponentUpdate(){
-    //     // const {
-    //     //     gameSet, 
-    //     //     playerActive,
-    //     //     boardValue,
-    //     //     gameFinished
-    //     // } = this.props;
-    //     // this.props.gameSetSet({
-    //     //     playerActive:playerActive,
-    //     //     boardValue:boardValue,
-    //     //     gameFinished:gameFinished
-    //     // });
-    // }
     onChangePlayerActive = e => {
         this.setState({
             playerActive: e.target.value
@@ -99,8 +72,6 @@ class GameContainer extends React.Component{
     }
     render(){
             const { playerActive, boardValue, gameFinished} = this.props;
-            console.log('render');
-            console.log(boardValue);
         return (
             <Game
                 playerActive={playerActive} 
