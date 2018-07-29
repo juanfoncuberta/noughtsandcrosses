@@ -11,7 +11,7 @@ const Game = ({
     onRestartGame,
     onClickCell,
     }) => <Box bg="white" color="primary">
-                {gameFinished && <Message>WE HAVE A WINNER</Message>}
+                {gameFinished && <Message bg={(playerActive==1 ? 'red':'blue')}>WE HAVE A WINNER</Message>}
                 <Board boardValue={boardValue} onClick={onClickCell} />
                 <Flex>
                     <PlayerSelection playerActive={playerActive} player = '1' onChangePlayerActive={onChangePlayerActive}/>
